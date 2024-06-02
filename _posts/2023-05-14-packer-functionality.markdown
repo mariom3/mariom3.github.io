@@ -8,23 +8,18 @@ author_profile: true
 classes: wide
 ---
 
-# Packers
+# Software Packers
+In this post we'll delve into what packers are and how malware authors use their functionality to their benefit.
+## What is a Packer? 
 
-## What is a packer? 
+A **packer**, in its simplest form, can be thought of as a self-extracting that was initially used to compress an executable file. Packers allowed for smaller file sizes while still being easy to use. A packed file remains executable, so end users do not have to manually unpack the file before being able to execute it. However, as a consequence of the packing process, the original contents get obfuscated and are not observable statically. While packers are not inheretly malicious, this is attractive to malware authors as it helps avoid detection. Packers have since grown in sophistication with added features to better defend against analysis and reverse engineering.
 
-A **packer** is a tool that was initially used to compress an executable file. There are three different types of packers:
-**Compressor** - shrinks the size of the file to save space on disk. 
-- For example, UPX is a compressor.
-**Crypter** - encrypts the original target file to prevent reverse engineering and evade ant-ivirus.
-**Protector** - both compresses and encrypts the target file. 
+There are legitimate packers such as UPX and Themida. They are used by real programs to protect against reverse engineering and tampering with the program. 
+Malicious packers main purpose is antivirus evasion. 
 
-Today, packers are still used to compress/encrypt executables or DLL files. Packers themselves are not malicious; there are legit packers such as UPX and Themida. They are used by real programs to protect against reverse engineering and tampering with the program. 
-
-These same protections are appealing to malware authors because:
-- these protections serve as an anti-analysis technique for them, since they essentially obfuscate the content of the malware, making it difficult to analyze strings statically.
-- Malicious packers main purpose is antivirus evasion. 
-
-Note: This is an anlysis section may be moved to unpacking section in future?
+Today packers go by many different names which reflect their specialized functionality. This includes:
+- **Crypter** - encrypts the original target file to prevent reverse engineering and evade ant-ivirus.
+- **Protector** - both compresses and encrypts the target file. 
 
 Understanding if a file was packed with a legitimate packer is simple. There are static analysis tools such as Detect-it-Easy, that can identify what packer was used. Malicious packers will usually not self identify, but if they do it will make it easy to detect as malware.     
 
