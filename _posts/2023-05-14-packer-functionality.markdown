@@ -1,8 +1,8 @@
 ---
 layout: single
 title:  "Packer Functionality"
-date:   2024-06-01 16:44:45 -0500
-categories: Malware
+# date:   2024-06-01 16:44:45 -0500
+categories: "Malware-Analysis"
 toc: true
 author_profile: true
 classes: wide
@@ -94,5 +94,5 @@ In other words, packers do not make it so that only parts of the target file are
 * Usage of Binary Padding
 * When a packer carries hundreds or thousands of stubs that are used to pick one randomly from. This would actually be a oligomorphic crypter, because there are only a few predefined forms.   
 
-Sources:
+## References:
 - MalwareAnalysisForHedgehogs: [Malware Theory - Packers](https://youtu.be/ESLEf66EzDk)
