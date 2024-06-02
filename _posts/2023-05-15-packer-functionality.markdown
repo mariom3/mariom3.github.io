@@ -4,7 +4,7 @@ title:  "Packer Functionality"
 date:   2024-06-01 16:44:45 -0500
 categories: Malware
 toc: true
-author_profile: false
+author_profile: true
 classes: wide
 ---
 
