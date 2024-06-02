@@ -95,4 +95,4 @@ In other words, packers do not make it so that only parts of the target file are
 * When a packer carries hundreds or thousands of stubs that are used to pick one randomly from. This would actually be a oligomorphic crypter, because there are only a few predefined forms.   
 
 Sources:
-- Analysis for Hedgehogs: [Malware Theory - Packers](https://youtu.be/ESLEf66EzDk)
+- MalwareAnalysisForHedgehogs: [Malware Theory - Packers](https://youtu.be/ESLEf66EzDk)
