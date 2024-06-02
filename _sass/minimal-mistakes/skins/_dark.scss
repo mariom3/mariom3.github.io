@@ -3,9 +3,10 @@
    ========================================================================== */
 
 /* Colors */
-$background-color: #252a34 !default;
+$background-color: #0c0d11 !default;
 $text-color: #eaeaea !default;
-$primary-color: #00adb5 !default;
+// $primary-color: #333a47 !default; <-- slightly darker version
+$primary-color: #4d596e !default;
 $border-color: mix(#fff, $background-color, 20%) !default;
 $code-background-color: mix(#000, $background-color, 15%) !default;
 $code-background-color-dark: mix(#000, $background-color, 20%) !default;
