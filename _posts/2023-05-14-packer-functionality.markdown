@@ -10,8 +10,8 @@ classes: wide
 
 # Software Packers
 In this post we'll delve into what packers are and how malware authors use their functionality to their benefit.
-## What is a Packer? 
 
+## What is a Packer? 
 A **packer**, in its simplest form, can be thought of as a self-extracting that was initially used to compress an executable file. Packers allowed for smaller file sizes while still being easy to use. A packed file remains executable, so end users do not have to manually unpack the file before being able to execute it. However, as a consequence of the packing process, the original contents get obfuscated and are not observable statically. While packers are not inheretly malicious, this is attractive to malware authors as it helps avoid detection. Packers have since grown in sophistication with added features to better defend against analysis and reverse engineering.
 
 There are legitimate packers such as UPX and Themida. They are used by real programs to protect against reverse engineering and tampering with the program. 
