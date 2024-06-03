@@ -9,8 +9,8 @@ $text-color: #eaeaea !default;
 // $primary-color: #3a4455 !default;
 $primary-color: #c7bb5d; // #c1ab0a 
 $border-color: mix(#fff, $background-color, 20%) !default;
-$code-background-color: mix(#000, $background-color, 15%) !default;
-$code-background-color-dark: mix(#000, $background-color, 20%) !default;
+$code-background-color: mix(#737373, $background-color, 25%) !default;
+$code-background-color-dark: mix(#737373, $background-color, 25%) !default;
 $form-background-color: mix(#000, $background-color, 15%) !default;
 $footer-background-color: mix(#000, $background-color, 30%) !default;
 $link-color: mix($primary-color, $text-color, 40%) !default;
