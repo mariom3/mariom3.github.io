@@ -30,7 +30,7 @@ For those diving deeper, this BlackHat talk is also a great watch:
 ## A Small Challange
 The program developed in the following sections is intended to be an easier exercise for seasoned REs to statically analyze (introducing dynamic analysis would make it far too easy). The program is also intended to bring to focus the differences Rust itself brings to commonly encountered malicious code patterns. 
 - I'd encourage you to review the source code, as well as, try to write a similar program yourself. It's always interesting to see what a compiler will generate from your code.
-- If you'd like to give it a try, there are 2 binaries:
+- If you'd like to give it a try, there are 2 binaries (password is `infected`):
     1. You can find the main binary here: [basic_rust_re.zip](/assets/basic_rust_re.zip)
     - HASH: fe9cac217b0b72c8e6cabd447000acd6c7ecba43f47cbe242f127722480a78af
     2. A simpler version of the same code made for beginners: [basic_rust_re_beginner.zip](/assets/basic_rust_re_beginner.zip)
