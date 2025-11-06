@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "Rust Binary Analyis 101 - Part I"
+title:  "Rust Binary Analysis 101 - Part I"
 # date:   2024-06-01 16:44:45 -0500
 categories: "Malware-Analysis"
 toc: true
@@ -9,7 +9,7 @@ classes: wide
 ---
 
 # Background
-It takes a rare breed of human to be thrilled to reverse engineer a complex Rust program. Unfortunately... or forutnately? I am not one of them. My first encounter with a Rust binary was unintentional and exciting at first; a Russian APT malware sample. What kind of malware RE wouldn't be intrigued by that?
+It takes a rare breed of human to be thrilled to reverse engineer a complex Rust program. Unfortunately... or fortunately? I am not one of them. My first encounter with a Rust binary was unintentional and exciting at first; a Russian APT malware sample. What kind of malware RE wouldn't be intrigued by that?
 
 <!-- Needless to say my excitement took a hit when the IDA decompiler spit this out: -->
 It didn't take long after loading the program into IDA for me to realize it was going to be more of a headache than I had anticipated... 
@@ -20,14 +20,14 @@ When your decompiler spits out something like this, you inevitably feel like you
 
 <img src="/assets/images/rust-analysis/simpsons.gif" alt="Simpsons GIF" style="display: block;margin: auto;width: 70%;">
 
-As with many complex problems, it's best to start with the basics. So, I decided to write a basic Rust program; and in true CTF-fashon, I took the opportunity to hide a flag in there as a simple challenge for other Malware REs. This post is part 1 of 2 to document my findings about the intricacies of analyzing Rust binaries and provide a practical way for learners to approach the topic:
+As with many complex problems, it's best to start with the basics. So, I decided to write a basic Rust program; and in true CTF-fashion, I took the opportunity to hide a flag in there as a simple challenge for other Malware REs. This post is part 1 of 2 to document my findings about the intricacies of analyzing Rust binaries and provide a practical way for learners to approach the topic:
 - Part I: In this post we'll focus on developing a basic Rust program to get more familiar with the language itself, but complex enough to serve as an exercise that is also interesting to reverse engineer. 
 - Part II: This will focus on the intricacies of analyzing Rust binaries as well as comparing how IDA vs Ghidra handle Rust binaries. 
 
 For those diving deeper, this BlackHat talk is also a great watch: 
 - [Project 0xA11C: Deoxidizing the Rust Malware Ecosystem](https://www.youtube.com/watch?v=cMIhIARmNfU)
 
-## A Small Challange
+## A Small Challenge
 The program developed in the following sections is intended to be an easier exercise for seasoned REs to statically analyze (introducing dynamic analysis would make it far too easy). The program is also intended to bring to focus the differences Rust itself brings to commonly encountered malicious code patterns. 
 - I'd encourage you to review the source code, as well as, try to write a similar program yourself. It's always interesting to see what a compiler will generate from your code.
 - If you'd like to give it a try, there are 2 binaries (password is `infected`):
@@ -59,7 +59,7 @@ fn main() {
     let input_password = input_password.trim();
 }
 ```
-2 - Next we need to take that user-supplied input and compare it to the password. So we've got to make up a password to compare with the user input. _(To avoid spoiling the callenge, I won't say what I selected for the password here.)_ I chose to use an XOR-gencrypted version of the password to up the spice 🌶️ level just a bit. Programmatically, this means we need to:
+2 - Next we need to take that user-supplied input and compare it to the password. So we've got to make up a password to compare with the user input. _(To avoid spoiling the challenge, I won't say what I selected for the password here.)_ I chose to use an XOR-gencrypted version of the password to up the spice 🌶️ level just a bit. Programmatically, this means we need to:
 - encrypt the user-supplied input the same way and with the same XOR key used for the password before comparing them.
 - define an `xor_crypt` routine (shown in the next section). 
 - compare the hard-coded encrypted password with the encrypted user input.
@@ -119,7 +119,7 @@ Since this is intended to be a static analysis challenge, we can make this more 
 Rust wants developers to admit that they usually don't know what they're doing before the compiler allows anyone to programmatically access memory. To do this, Rust provides the `unsafe` keyword that developers must use to encapsulate this kind of code. It seems that, by default, Rust will only compile code that it can prove to be safe. For this reason, it will refuse to compile code that works directly with pointers or inline assembly. 
 
 ### Dynamically Setting the XOR Key
-Of course, there are simpler anti-debug techniques, but I wanted to intrduce a bit of a challenge for anyone attempting to debug this. Instead of quitting if a debugger is detected, I wanted to dynamically set the XOR key used to decode the password. For this, I opted to use the `NtGlobalFlag` from the PEB, which is `0x00` if not being debugged; otherwise the the following flags are set:
+Of course, there are simpler anti-debug techniques, but I wanted to introduce a bit of a challenge for anyone attempting to debug this. Instead of quitting if a debugger is detected, I wanted to dynamically set the XOR key used to decode the password. For this, I opted to use the `NtGlobalFlag` from the PEB, which is `0x00` if not being debugged; otherwise the the following flags are set:
 - FLG_HEAP_ENABLE_TAIL_CHECK (0x10)
 - FLG_HEAP_ENABLE_FREE_CHECK (0x20)
 - FLG_HEAP_VALIDATE_PARAMETERS (0x40)
@@ -136,7 +136,7 @@ struct PEB {
 }
 ```
 
-2 - Now, the `unsafe` keyword is needed when defining the code that retreives the PEB. To keep things simple we are only supporting x64. In this case, we need to read the GS segment register, which requires us to use inline assembly in Rust. To do this, we define a function `__readgsqword` that implements that functionality. Next, we define another function the uses `__readgsqword` to read the PEB and return the `NtGlobalFlag`:
+2 - Now, the `unsafe` keyword is needed when defining the code that retrieves the PEB. To keep things simple we are only supporting x64. In this case, we need to read the GS segment register, which requires us to use inline assembly in Rust. To do this, we define a function `__readgsqword` that implements that functionality. Next, we define another function the uses `__readgsqword` to read the PEB and return the `NtGlobalFlag`:
 
 ```rust
 use core::arch::asm;
