@@ -36,7 +36,7 @@ The program developed in the following sections is intended to be an easier exer
     2. A simpler version of the same code made for beginners: [basic_rust_re_beginner.zip](/assets/basic_rust_re_beginner.zip)
     - HASH: da8e52df67fdf440c645bf6bc5a54f05dc798f1b7bae4c59a38a677f5da3701f
 
-**The solution will be revealed in part II!**
+**The solution is available in [Part 2]({% post_url 2025-12-04-rust-binary-analysis2%})!**
 
 ---
 
