@@ -26,7 +26,7 @@ Rust supports many different calling conventions and allows developers to specif
 # Rust Binary Analysis (IDA 9.1 vs Ghidra 11.3)
 Throughout the rest of this section we'll analyze the program we developed in the previous post ([Part 1]({% post_url 2025-11-05-rust-binary-analysis1%})) while comparing the output from IDA 9.1 with Ghidra 11.3. If you haven't already, try analyzing the program yourself first as the following will provide a solution.  
 
-## Findings User Code
+## Finding User Code
 When loading up the program we wrote in IDA and Ghidra, neither has an issue disassembling the entry point; which is nothing special. The short function does not directly call the user defined main; instead, it provides it as the 1st argument to the function at `0x140004300`. This function is `lang_start` which is responsible for setting up the Rust runtime before calling our user-defined main. 
 
 ![Default Entry](/assets/images/rust-analysis/main_cmp.png)
@@ -130,5 +130,5 @@ Now we can simply copy the hex data used to compare to the XOR'ed user input int
 ![Recovered Password](/assets/images/rust-analysis/2-password.png)  
 
 # Helpful Resources
-- CheckPoint Research Deep-Dive [Rust Binary Analysis, Feature by Feature](https://research.checkpoint.com/2023/rust-binary-analysis-feature-by-feature/)
+- CheckPoint Research Deep-Dive: [Rust Binary Analysis, Feature by Feature](https://research.checkpoint.com/2023/rust-binary-analysis-feature-by-feature/)
 - BlackHat Talk on the Rust Malware Ecosystem: [Rust Malware Ecosystem](https://www.youtube.com/watch?v=cMIhIARmNfU)
