@@ -9,9 +9,9 @@ classes: wide
 ---
 
 # Background
-It takes a rare breed of human to be thrilled to reverse engineer a complex Rust program. Unfortunately... or fortunately? I am not one of them. My first encounter with a Rust binary was unintentional and exciting at first; a Russian APT malware sample. What kind of malware RE wouldn't be intrigued by that?
+It takes a rare breed of human to be thrilled to reverse engineer a complex Rust program. Unfortunately... or fortunately? I am not one of them. My first encounter with a Rust binary was unintentional and exciting at first; an APT malware sample. What kind of malware RE wouldn't be intrigued by that?
 
-<!-- Needless to say my excitement took a hit when the IDA decompiler spit this out: -->
+
 It didn't take long after loading the program into IDA for me to realize it was going to be more of a headache than I had anticipated... 
 
 ![Rust Malware Decompilation](/assets/images/rust-analysis/decomp.png)
