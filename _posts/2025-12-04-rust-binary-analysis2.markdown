@@ -7,6 +7,8 @@ author_profile: true
 classes: wide
 ---
 
+![Main Image](/assets/images/rust-analysis/RustPost2.png)
+
 # Background
 Binaries written in Rust have proven notoriously difficult to analyze and in the previous post ([Part 1]({% post_url 2025-11-05-rust-binary-analysis1%})), we created a basic Rust program to see what all the fuss is about. The program is intended to help us learn how Rust itself compiles commonly encountered malicious code patterns while having access to the source code to facilitate learning. Before diving into analysis of the program we developed, let's look at what makes Rust analysis difficult in general.  
 
