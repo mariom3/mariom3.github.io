@@ -8,9 +8,10 @@ author_profile: true
 classes: wide
 ---
 
-# Background
-It takes a rare breed of human to be thrilled to reverse engineer a complex Rust program. Unfortunately... or fortunately? I am not one of them. My first encounter with a Rust binary was unintentional and exciting at first; an APT malware sample. What kind of malware RE wouldn't be intrigued by that?
+![Main Image](/assets/images/rust-analysis/RustPost1.png)
 
+# Background
+It takes a rare breed of human to be thrilled to reverse engineer a complex Rust program. Unfortunately... or *fortunately*? I am not one of them. My first encounter with a Rust binary was unintentional and exciting at first; an APT malware sample. What kind of malware RE wouldn't be intrigued by that?
 
 It didn't take long after loading the program into IDA for me to realize it was going to be more of a headache than I had anticipated... 
 
