@@ -1,7 +1,7 @@
 ---
 layout: single
 title:  "Introduction to Packers"
-# date:   2024-06-01 16:44:45 -0500
+excerpt: "This post delves into what packers are and how malware developers use their functionality to their benefit."
 categories: "Malware-Analysis"
 toc: true
 author_profile: true

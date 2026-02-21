@@ -1,7 +1,7 @@
 ---
 layout: single
 title:  "Rust Binary Analysis 101 - Part I"
-# date:   2024-06-01 16:44:45 -0500
+excerpt: "In this post we'll focus on developing a basic Rust program that is complex enough to serve as an inertesting exercise to reverse engineer."
 categories: "Malware-Analysis"
 toc: true
 author_profile: true

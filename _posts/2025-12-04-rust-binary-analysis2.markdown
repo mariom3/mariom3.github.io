@@ -1,6 +1,7 @@
 ---
 layout: single
 title:  "Rust Binary Analyis 101 - Part 2"
+excerpt: "This post covers challenges with Rust analysis and compares how IDA 9.1 and Ghidra 11.3 handle Rust binaries."
 categories: "Malware-Analysis" 
 toc: true
 author_profile: true
